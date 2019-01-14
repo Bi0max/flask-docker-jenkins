@@ -5,7 +5,12 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    s = 'Flask Dockerized #1 \n' + str(sys.version)
+    s = "Flask Dockerized Update through volume #1 \n" + str(sys.version)
+    s += "\n"
+    with open("test.txt", "r") as f:
+        for line in f:
+            s += line
+    
     return s
 
 
